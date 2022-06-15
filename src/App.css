@@ -1,38 +1,121 @@
-.App {
+* {
+  --black: #222;
+  --green: #82b340;
+  --white: #fff;
+  --grey: #ececec;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: var(--white);
+}
+
+.navbar {
+  background-color: var(--black);
+  color: var(--white);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  padding: 0.5rem 1rem;
+}
+
+.nav-links {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   text-align: center;
+  align-self: center;
+  list-style-type: none;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.nav-link {
+  color: var(--grey);
+  align-self: center;
+  text-transform: capitalize;
+  font-size: 1.2rem;
+  text-decoration: none;
+  transition: all 0.2s linear;
+  cursor: pointer;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.nav-link:hover,
+.active {
+  color: var(--green);
+}
+
+.tourlist {
+  width: 70vw;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+.tour {
+  background: var(--grey);
+  border-radius: 0.8rem;
+  margin: 1rem 0;
+}
+.tour img {
+  width: 100%;
+  border-top-left-radius: 0.8rem;
+  border-top-right-radius: 0.8rem;
+  display: block;
+}
+
+.img-container {
+  position: relative;
+}
+.close-btn {
+  position: absolute;
+  display: block;
+  top: 5%;
+  right: 5%;
+  color: var(--green);
+  font-size: 2rem;
+  cursor: pointer;
+  transition: all 0.2s linear;
+  opacity: 0;
+}
+.close-btn:hover {
+  opacity: 1;
+}
+
+.tour-info {
+  padding: 1rem 0.5rem;
+}
+.tour-info h3 {
+  text-transform: uppercase;
+  color: var(--green);
+}
+.tour-info h4 {
+  text-transform: capitalize;
+  color: var(--black);
+  margin: 0.2rem 0 0.6rem 0;
+}
+.tour-info h5 {
+  text-transform: capitalize;
+}
+
+.tour-info > h5 > span {
+  color: var(--green);
+  margin: 0.5rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+  .tourlist {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
   }
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media screen and (min-width: 992px) {
+  .tourlist {
+    width: 85vw;
+    grid-template-columns: repeat(3, 1fr);
   }
-  to {
-    transform: rotate(360deg);
+}
+@media screen and (min-width: 1140px) {
+  .tourlist {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
